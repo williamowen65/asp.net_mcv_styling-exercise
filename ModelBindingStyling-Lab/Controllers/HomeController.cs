@@ -24,10 +24,25 @@ namespace ModelBindingStyling_Lab.Controllers
             return View(user);
         }
 
-        public IActionResult PrinterList()
+        public IActionResult PrinterList(PrinterFilterViewModel filter)
         {
             IEnumerable<ThreeDPrinters> printers = GetPrinterList();
-            return View(printers);
+            if (filter != null)
+            {
+                printers = printers
+                    .Where(p => (string.IsNullOrEmpty(filter.SKU) || p.SKU.Contains(filter.SKU, StringComparison.OrdinalIgnoreCase)) &&
+                                (string.IsNullOrEmpty(filter.Title) || p.Title.Contains(filter.Title, StringComparison.OrdinalIgnoreCase)) &&
+                                (!filter.Price.HasValue || p.Price == (double)filter.Price.Value) &&
+                                (string.IsNullOrEmpty(filter.BuildVolume) || p.BuildVolume.Contains(filter.BuildVolume, StringComparison.OrdinalIgnoreCase)));
+            }
+
+            var model = new PrinterListViewModel
+            {
+                Printers = printers,
+                Filter = filter
+            };
+
+            return View(model);
         }
 
         /// <summary>

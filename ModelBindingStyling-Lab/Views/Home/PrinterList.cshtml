@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ThreeDPrinters>
+﻿@model PrinterListViewModel
 
 @{
     ViewData["Title"] = "Printer List";
@@ -6,46 +6,57 @@
 
 <h1>PrinterList</h1>
 
+<form method="get" asp-action="PrinterList">
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SKU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BuildVolume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrinterImage)
-            </th>
-            <th></th>
-        </tr>
+            <tr>
+                <th></th>
+                <th>
+                    <div>@Html.DisplayNameFor(model => model.Filter.SKU)</div>
+                    <input type="text" name="SKU" value="@Model.Filter.SKU" oninput="this.form.submit()">
+                </th>
+                <th>
+                    <div>@Html.DisplayNameFor(model => model.Filter.Title)</div>
+                    <input type="text" name="Title" value="@Model.Filter.Title" oninput="this.form.submit()">
+                </th>
+                <th>
+                    <div>@Html.DisplayNameFor(model => model.Filter.Price)</div>
+                    <input type="text" name="Price" value="@Model.Filter.Price" oninput="this.form.submit()">
+                </th>
+                <th>
+                    <div>@Html.DisplayNameFor(model => model.Filter.BuildVolume)</div>
+                    <input type="text" name="BuildVolume" value="@Model.Filter.BuildVolume" oninput="this.form.submit()">
+                </th>
+                <th>
+                    <div>@Html.DisplayNameFor(model => model.Filter.PrinterImage)</div>
+                </th>
+                <th></th>
+            </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SKU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BuildVolume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrinterImage)
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Printers)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SKU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildVolume)
+                </td>
+                <td>
+                    <img class="w-75" src="@Html.DisplayFor(modelItem => item.PrinterImage)" alt="printer image">
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+</form>
