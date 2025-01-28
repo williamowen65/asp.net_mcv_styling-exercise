@@ -34,13 +34,13 @@
     </div>
 
     <main class="d-flex flex-column w-100">
-        <div id="top-bar" class="w-100 d-flex justify-content-between">
+        <div id="top-bar" class="d-flex justify-content-between ui-background ui-margin ui-br">
             <input type="text" class="w-100" id="search" placeholder="Search">
             <div id="profile-logo" class="circle-frame">
                 <img src="https://placehold.co/400x400" alt="User Profile Image">
             </div>
         </div>
-        <div class="position-relative">
+        <div class="position-relative ui-background ui-margin ui-br">
 
             <div id="hero-image-container" class="w-100 ">
                 <img src="https://placehold.co/600x400" alt="Profile Hero Image" class="w-100">
@@ -48,31 +48,83 @@
             </div>
             <div>
 
-            <div id="user-profile-image" class="circle-frame">
-                <img src="https://placehold.co/400x400" alt="User Profile Image">
-                </div> 
+                <div id="user-profile-image" class="circle-frame">
+                    <img src="https://placehold.co/400x400" alt="User Profile Image">
+                </div>
                 <div id="user-info" class="">
                     <div id="username"> @Model.FullName</div>
                     <div id="user-title">[User title]</div>
                 </div>
             </div>
-        </div>
-        <header>
-            <div id="header-actions-bar" class="d-flex justify-content-end">
+            <header>
+                <div id="header-actions-bar" class="d-flex justify-content-end mr-ui ">
 
-                <div id="profile-actions">
-                    <button>comments</button>
-                    <button>Follow</button>
-                    <button>Schedule a meeting</button>
+                    <div id="profile-actions">
+                        <button>comments</button>
+                        <button>Follow</button>
+                        <button>Schedule a meeting</button>
 
+                    </div>
                 </div>
+
+            </header>
+        </div>
+
+
+        <div id="main-content" class="d-flex w-100">
+            <div id="about" class="d-flex flex-column align-items-center w-25 ui-background ui-margin ui-br" style="margin-right: 0;">
+                <header>About Section</header>
+
+
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.UserProfileId)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Model.UserProfileId
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Model.FullName
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Model.Email
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Model.PhoneNumber
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.ImageUrl)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Model.ImageUrl
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.GitHubUrl)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Model.GitHubUrl
+                    </dd>
+                    <dt>Skilled Languages</dt>
+                    <dd>
+                        <ul>
+                            @foreach (string languageSkill in Model.SkilledLanguages)
+                            {
+                                <li>@languageSkill</li>
+                            }
+                        </ul>
+                    </dd>
+                </dl>l
             </div>
-
-        </header>
-
-        <div id="main-content">
-            <div id="about"></div>
-            <div id="feed-container">
+            <div id="feed-container" class="flex-grow-1 d-flex flex-column align-items-center ui-background ui-margin ui-br">
                 <div id="feed-header">
                     <button>Followers</button>
                     <button>Following</button>
@@ -82,12 +134,14 @@
                     Feed item
                 </div>
             </div>
-            <div id="profile-sidebar">
-                <div id="you-might-know">
-                    You might know
+            <div id="profile-sidebar" class="d-flex flex-column align-items-center w-25 mr-ui x">
+                <div id="you-might-know" class="sidebar-section ui-background w-100 ui-margin mb-0 ui-br">
+                    <header>You might know</header>
+                    user Profile card
                 </div>
-                <div id="active">
-                    Active
+                <div id="active" class="sidebar-section ui-background w-100 ui-margin ui-br">
+                    <header>Active</header>
+                    user Profile card
                 </div>
             </div>
         </div>
@@ -97,52 +151,4 @@
 </div>
 
 
-
-@* <dl class="row"> *@
-@*     <dt class="col-sm-3"> *@
-@*         @Html.DisplayNameFor(model => model.UserProfileId) *@
-@*     </dt> *@
-@*     <dd class="col-sm-9"> *@
-@*         @Model.UserProfileId *@
-@*     </dd> *@
-@*     <dt class="col-sm-3"> *@
-@*         @Html.DisplayNameFor(model => model.FullName) *@
-@*     </dt> *@
-@*     <dd class="col-sm-9"> *@
-@*         @Model.FullName *@
-@*     </dd> *@
-@*     <dt class="col-sm-3"> *@
-@*         @Html.DisplayNameFor(model => model.Email) *@
-@*     </dt> *@
-@*     <dd class="col-sm-9"> *@
-@*         @Model.Email *@
-@*     </dd> *@
-@*     <dt class="col-sm-3"> *@
-@*         @Html.DisplayNameFor(model => model.PhoneNumber) *@
-@*     </dt> *@
-@*     <dd class="col-sm-9"> *@
-@*         @Model.PhoneNumber *@
-@*     </dd> *@
-@*     <dt class="col-sm-3"> *@
-@*         @Html.DisplayNameFor(model => model.ImageUrl) *@
-@*     </dt> *@
-@*     <dd class="col-sm-9"> *@
-@*         @Model.ImageUrl *@
-@*     </dd> *@
-@*     <dt class="col-sm-3"> *@
-@*         @Html.DisplayNameFor(model => model.GitHubUrl) *@
-@*     </dt> *@
-@*     <dd class="col-sm-9"> *@
-@*         @Model.GitHubUrl *@
-@*     </dd> *@
-@*     <dt>Skilled Languages</dt> *@
-@*     <dd> *@
-@*         <ul> *@
-@*             @foreach (string languageSkill in Model.SkilledLanguages) *@
-@*             { *@
-@*                 <li>@languageSkill</li> *@
-@*             } *@
-@*         </ul> *@
-@*     </dd> *@
-@* </dl> *@
 

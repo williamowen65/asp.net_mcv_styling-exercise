@@ -1,5 +1,9 @@
-﻿#account-sidebar {
-/*    position: sticky;*/
+﻿body {
+    background: #c8c8d2;
+    /*background: blue;*/
+}
+#account-sidebar {
+    position: sticky;
     display: inline-flex;
     left: 0;
     top: 0;
@@ -23,8 +27,8 @@ margin: 50px 0 88px 0;
 }
 
 #logo .img-container, #profile-logo {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     display: flex;
     flex-direction: column;
     margin-right: 9px;
@@ -61,13 +65,13 @@ margin: 50px 0 88px 0;
 #user-profile-image {
     width: max-content;
     position: absolute;
-    bottom: -31px;
+    bottom: 62px;
     left: 83px;
     border: 1px solid black;
 }
 #user-info {
     position: absolute;
-    bottom: -51px;
+    bottom: 36px;
     left: 200px;
 }
 
@@ -90,7 +94,30 @@ margin: 50px 0 88px 0;
 
 }
 
+.sidebar-section {
+
+
+}
+
 nav a {
     display: block;
     margin-bottom: 20px;
+}
+
+.ui-background {
+    background: #ffffff;
+   
+}
+.ui-margin {
+    margin: 10px;
+    padding: 10px;
+}
+
+.mr-ui {
+    margin-right: 10px;
+}
+
+.ui-br {
+
+border-radius: 5px;
 }
