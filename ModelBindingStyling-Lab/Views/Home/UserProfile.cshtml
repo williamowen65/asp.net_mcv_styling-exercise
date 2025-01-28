@@ -9,39 +9,57 @@
 }
 
 
-<div id="page">
+<div id="page" class="d-flex">
     <div id="account-sidebar">
-        <div id="logo" class="d-flex align-items-center">
-            <div class="img-container">
+        <div id="logo" class="d-flex">
+            <div class="img-container circle-frame">
 
-            <img src="https://placehold.co/400x400" alt="Platform Logo">
+                <img src="https://placehold.co/400x400" alt="Platform Logo">
             </div>
             <div>logo</div>
         </div>
         <nav>
             <div>
-                <a href="#"><i>icon</i> Link</a>
+                <a href="#"><i>icon</i> Home</a>
+                <a href="#"><i>icon</i> Profile</a>
+                <a href="#"><i>icon</i> Messages</a>
+                <a href="#"><i>icon</i> Purchases</a>
+                <a href="#"><i>icon</i> Returns</a>
+                <a href="#"><i>icon</i> Gallery</a>
+                <a href="#"><i>icon</i> Analytics</a>
+                <a href="#"><i>icon</i> Settings</a>
             </div>
             @* Home, profile, messages, purchases, returns, Gallery, Analytics, Settings *@
         </nav>
     </div>
-    <main>
+
+    <main class="d-flex flex-column w-100">
+        <div id="top-bar" class="w-100 d-flex justify-content-between">
+            <input type="text" class="w-100" id="search" placeholder="Search">
+            <div id="profile-logo" class="circle-frame">
+                <img src="https://placehold.co/400x400" alt="User Profile Image">
+            </div>
+        </div>
+        <div class="position-relative">
+
+            <div id="hero-image-container" class="w-100 ">
+                <img src="https://placehold.co/600x400" alt="Profile Hero Image" class="w-100">
+
+            </div>
+            <div>
+
+            <div id="user-profile-image" class="circle-frame">
+                <img src="https://placehold.co/400x400" alt="User Profile Image">
+                </div> 
+                <div id="user-info" class="">
+                    <div id="username"> @Model.FullName</div>
+                    <div id="user-title">[User title]</div>
+                </div>
+            </div>
+        </div>
         <header>
-            <div id="top-bar">
-                <div id="search"></div>
-                <div id="profile-logo">
-                    <img src="https://placehold.co/600x400" alt="User Profile Image">
-                </div>
-            </div>
-            <div id="hero-image-container">
-                <img src="https://placehold.co/600x400" alt="Profile Hero Image">
-            </div>
-            <div id="user-profile-image"></div>
-            <div id="header-actions-bar">
-                <div id="user-info">
-                    <div id="username"></div>
-                    <div id="user-title"></div>
-                </div>
+            <div id="header-actions-bar" class="d-flex justify-content-end">
+
                 <div id="profile-actions">
                     <button>comments</button>
                     <button>Follow</button>

@@ -1,18 +1,96 @@
 ﻿#account-sidebar {
-    position: sticky;
+/*    position: sticky;*/
+    display: inline-flex;
     left: 0;
     top: 0;
+    background: #490057;
+    max-width: 200px;
+    width: 100%;
+/*    display: flex;*/
+/*    justify-content: center;*/
+    align-items:center;
+    flex-direction: column;
+    height: 100vh;
 
 }
 
-#logo .img-container {
-    border-radius: 50%;
+#logo {
+display: flex;
+align-items: center;
+color: white;
+/*flex-direction: row;*/
+margin: 50px 0 88px 0;
+}
+
+#logo .img-container, #profile-logo {
     width: 30px;
     height: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 9px;
+}
+
+
+
+#top-bar {
+    display: flex;
+
+}
+
+
+
+#profile-logo {
+    width: 40px;
+    height: 40px;
+}
+
+
+#hero-image-container {
+    height: 300px;
     overflow: hidden;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-frame {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#user-profile-image {
+    width: max-content;
+    position: absolute;
+    bottom: -31px;
+    left: 83px;
+    border: 1px solid black;
+}
+#user-info {
+    position: absolute;
+    bottom: -51px;
+    left: 200px;
+}
+
+#user-profile-image img {
+    width: 100px;
+    height: 100px;
 }
 
 #logo img {
     width: 152px;
+}
+
+
+#header-actions-bar {
+
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+nav a {
+    display: block;
+    margin-bottom: 20px;
 }
