@@ -8,71 +8,123 @@
     <link rel="stylesheet" href="~/css/UserProfile.css" />
 }
 
-<h1>Profile Page</h1>
 
-<div class="card userProfile">
-    <div class="card-body front-of-card">
-        <div class="d-flex justify-content-between">
+<div id="page">
+    <div id="account-sidebar">
+        <div id="logo" class="d-flex align-items-center">
+            <div class="img-container">
 
-            <h4>UserProfile</h4>
-
-            <button class="btn btn-primary" onclick="event.target.closest('.userProfile').classList.toggle('flipped')">Flip me</button>
+            <img src="https://placehold.co/400x400" alt="Platform Logo">
+            </div>
+            <div>logo</div>
         </div>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.UserProfileId)
-            </dt>
-            <dd class="col-sm-9">
-                @Model.UserProfileId
-            </dd>
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.FullName)
-            </dt>
-            <dd class="col-sm-9">
-                @Model.FullName
-            </dd>
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd class="col-sm-9">
-                @Model.Email
-            </dd>
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </dt>
-            <dd class="col-sm-9">
-                @Model.PhoneNumber
-            </dd>
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </dt>
-            <dd class="col-sm-9">
-                @Model.ImageUrl
-            </dd>
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.GitHubUrl)
-            </dt>
-            <dd class="col-sm-9">
-                @Model.GitHubUrl
-            </dd>
-            <dt>Skilled Languages</dt>
-            <dd>
-                <ul>
-                    @foreach (string languageSkill in Model.SkilledLanguages)
-                    {
-                        <li>@languageSkill</li>
-                    }
-                </ul>
-            </dd>
-        </dl>
+        <nav>
+            <div>
+                <a href="#"><i>icon</i> Link</a>
+            </div>
+            @* Home, profile, messages, purchases, returns, Gallery, Analytics, Settings *@
+        </nav>
     </div>
+    <main>
+        <header>
+            <div id="top-bar">
+                <div id="search"></div>
+                <div id="profile-logo">
+                    <img src="https://placehold.co/600x400" alt="User Profile Image">
+                </div>
+            </div>
+            <div id="hero-image-container">
+                <img src="https://placehold.co/600x400" alt="Profile Hero Image">
+            </div>
+            <div id="user-profile-image"></div>
+            <div id="header-actions-bar">
+                <div id="user-info">
+                    <div id="username"></div>
+                    <div id="user-title"></div>
+                </div>
+                <div id="profile-actions">
+                    <button>comments</button>
+                    <button>Follow</button>
+                    <button>Schedule a meeting</button>
 
-    <div class="card-body back-of-card">
+                </div>
+            </div>
 
-        <img class="w-100 h-100 backgroundCardImage"  src="~/backOfCard.svg"/>
+        </header>
 
-        <button class="btn btn-primary position-absolute" style="top:14px; left: 14px;"onclick="event.target.closest('.userProfile').classList.toggle('flipped')">Flip me</button>
+        <div id="main-content">
+            <div id="about"></div>
+            <div id="feed-container">
+                <div id="feed-header">
+                    <button>Followers</button>
+                    <button>Following</button>
+                    <button>Posts</button>
+                </div>
+                <div id="feed">
+                    Feed item
+                </div>
+            </div>
+            <div id="profile-sidebar">
+                <div id="you-might-know">
+                    You might know
+                </div>
+                <div id="active">
+                    Active
+                </div>
+            </div>
+        </div>
 
-    </div>
+    </main>
+
 </div>
+
+
+
+@* <dl class="row"> *@
+@*     <dt class="col-sm-3"> *@
+@*         @Html.DisplayNameFor(model => model.UserProfileId) *@
+@*     </dt> *@
+@*     <dd class="col-sm-9"> *@
+@*         @Model.UserProfileId *@
+@*     </dd> *@
+@*     <dt class="col-sm-3"> *@
+@*         @Html.DisplayNameFor(model => model.FullName) *@
+@*     </dt> *@
+@*     <dd class="col-sm-9"> *@
+@*         @Model.FullName *@
+@*     </dd> *@
+@*     <dt class="col-sm-3"> *@
+@*         @Html.DisplayNameFor(model => model.Email) *@
+@*     </dt> *@
+@*     <dd class="col-sm-9"> *@
+@*         @Model.Email *@
+@*     </dd> *@
+@*     <dt class="col-sm-3"> *@
+@*         @Html.DisplayNameFor(model => model.PhoneNumber) *@
+@*     </dt> *@
+@*     <dd class="col-sm-9"> *@
+@*         @Model.PhoneNumber *@
+@*     </dd> *@
+@*     <dt class="col-sm-3"> *@
+@*         @Html.DisplayNameFor(model => model.ImageUrl) *@
+@*     </dt> *@
+@*     <dd class="col-sm-9"> *@
+@*         @Model.ImageUrl *@
+@*     </dd> *@
+@*     <dt class="col-sm-3"> *@
+@*         @Html.DisplayNameFor(model => model.GitHubUrl) *@
+@*     </dt> *@
+@*     <dd class="col-sm-9"> *@
+@*         @Model.GitHubUrl *@
+@*     </dd> *@
+@*     <dt>Skilled Languages</dt> *@
+@*     <dd> *@
+@*         <ul> *@
+@*             @foreach (string languageSkill in Model.SkilledLanguages) *@
+@*             { *@
+@*                 <li>@languageSkill</li> *@
+@*             } *@
+@*         </ul> *@
+@*     </dd> *@
+@* </dl> *@
+
