@@ -4,59 +4,88 @@
     ViewData["Title"] = "Printer List";
 }
 
-<h1>PrinterList</h1>
+<h1>Printer List</h1>
 
-<form method="get" asp-action="PrinterList">
-<table class="table">
-    <thead>
+@* data-for attribute added to link header and data elements *@
+
+<form id="filterForm" method="get" asp-action="PrinterList">
+    <table class="table responsive">
+        <thead>
             <tr>
                 <th></th>
-                <th>
+                <th data-for="sku">
                     <div>@Html.DisplayNameFor(model => model.Filter.SKU)</div>
-                    <input type="text" name="SKU" value="@Model.Filter.SKU" oninput="this.form.submit()">
+                    <input type="text" name="SKU" value="@Model.Filter.SKU" oninput="submitForm()">
                 </th>
-                <th>
+                <th data-for="title">
                     <div>@Html.DisplayNameFor(model => model.Filter.Title)</div>
-                    <input type="text" name="Title" value="@Model.Filter.Title" oninput="this.form.submit()">
+                    <input type="text" name="Title" value="@Model.Filter.Title" oninput="submitForm()">
                 </th>
-                <th>
+                <th data-for="price">
                     <div>@Html.DisplayNameFor(model => model.Filter.Price)</div>
-                    <input type="text" name="Price" value="@Model.Filter.Price" oninput="this.form.submit()">
+                    <input type="text" name="Price" value="@Model.Filter.Price" oninput="submitForm()">
                 </th>
-                <th>
+                <th data-for="buildVolume">
                     <div>@Html.DisplayNameFor(model => model.Filter.BuildVolume)</div>
-                    <input type="text" name="BuildVolume" value="@Model.Filter.BuildVolume" oninput="this.form.submit()">
+                    <input type="text" name="BuildVolume" value="@Model.Filter.BuildVolume" oninput="submitForm()">
                 </th>
-                <th>
+                <th data-for="printerImage">
                     <div>@Html.DisplayNameFor(model => model.Filter.PrinterImage)</div>
                 </th>
                 <th></th>
             </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Printers)
-        {
-            <tr>
-                <td>
-                    <input type="checkbox">
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SKU)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BuildVolume)
-                </td>
-                <td>
-                    <img class="w-75" src="@Html.DisplayFor(modelItem => item.PrinterImage)" alt="printer image">
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody id="printerList">
+            @foreach (var item in Model.Printers)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td data-for="sku">
+                        @Html.DisplayFor(modelItem => item.SKU)
+                    </td>
+                    <td data-for="title">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td data-for="price">
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td data-for="buildVolume">
+                        @Html.DisplayFor(modelItem => item.BuildVolume)
+                    </td>
+                    <td data-for="printerImage">
+                        <img class="image" src="@item.PrinterImage" alt="printer image">
+                    </td>
+                </tr>
+                /* 
+                This is a child table that appears on mobile screens as a dropdown under each row
+                */
+                <tr class="child-table">
+                    <td colspan="6">
+                        <table>
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function submitForm() {
+            $.ajax({
+                url: '@Url.Action("PrinterList", "Home")',
+                type: 'GET',
+                data: $('#filterForm').serialize(),
+                success: function (result) {
+                    $('#printerList').html($(result).find('#printerList').html());
+                }
+            });
+        }
+    </script>
+}

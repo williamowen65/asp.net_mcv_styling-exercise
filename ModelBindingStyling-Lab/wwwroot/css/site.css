@@ -17,42 +17,17 @@ body {
     margin-bottom: 60px;
 }
 
-.userProfile {
-    transition: all 0.3s;
-    background: white;
-}
-
-    .userProfile:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        translate: 0 -5px;
-    }
-
-.flipped {
-    transform: rotateY(180deg);
-}
-
-.front-of-card {
-    z-index: 1;
-}
-
-.flipped .front-of-card {
-    z-index: 0;
-}
-
-.back-of-card {
-    transform: rotateY(180deg);
-    position: absolute;
-    background: white;
+input {
     width: 100%;
-    height: 100%;
-    /*    z-index:1*/
+    min-width: 50px;
 }
 
-    .back-of-card .backgroundCardImage {
-        opacity: 0;
-        transition: all 0.3s;
-    }
+tr.child-table {
+   border-style: hidden;
+}
 
-.flipped .backgroundCardImage {
-    opacity: 1;
+
+/*// Printer datalist page styles*/
+img {
+    height: 67px !important;
 }
