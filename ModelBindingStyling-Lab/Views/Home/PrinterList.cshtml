@@ -28,8 +28,7 @@
 
 
 <div class="bg-info">
-
-<h1 class="container">Printer List</h1>
+    <h1 class="container">Printer List</h1>
 </div>
 
 
@@ -37,25 +36,30 @@
 @* data-for attribute added to link header and data elements *@
 
 <form id="filterForm" method="get" asp-action="PrinterList" class="container">
+    <style>
+        .fa-expand {
+            cursor: pointer
+        }
+    </style>
     <table class="table responsive">
         <thead>
             <tr>
                 <th></th>
-                <th data-for="sku">
+                <th data-for="sku" class="d-none d-md-table-cell">
                     <div>@Html.DisplayNameFor(model => model.Filter.SKU)</div>
-                    <input type="text" name="SKU" value="@Model.Filter.SKU" oninput="submitForm()">
+                    <input class="form-control" type="text" name="SKU" value="@Model.Filter.SKU" oninput="submitForm()">
                 </th>
                 <th data-for="title">
                     <div>@Html.DisplayNameFor(model => model.Filter.Title)</div>
-                    <input type="text" name="Title" value="@Model.Filter.Title" oninput="submitForm()">
+                    <input class="form-control" type="text" name="Title" value="@Model.Filter.Title" oninput="submitForm()">
                 </th>
                 <th data-for="price">
                     <div>@Html.DisplayNameFor(model => model.Filter.Price)</div>
-                    <input type="text" name="Price" value="@Model.Filter.Price" oninput="submitForm()">
+                    <input class="form-control" type="text" name="Price" value="@Model.Filter.Price" oninput="submitForm()">
                 </th>
-                <th data-for="buildVolume">
+                <th data-for="buildVolume" class="d-none d-md-table-cell">
                     <div>@Html.DisplayNameFor(model => model.Filter.BuildVolume)</div>
-                    <input type="text" name="BuildVolume" value="@Model.Filter.BuildVolume" oninput="submitForm()">
+                    <input class="form-control" type="text" name="BuildVolume" value="@Model.Filter.BuildVolume" oninput="submitForm()">
                 </th>
                 <th data-for="printerImage">
                     <div>@Html.DisplayNameFor(model => model.Filter.PrinterImage)</div>
@@ -64,6 +68,7 @@
             </tr>
         </thead>
         <tbody id="printerList">
+         
 
             @for (int i = 0; i < Model.Printers.Count(); i++)
             {
@@ -72,8 +77,9 @@
                 <tr class="@(i % 2 == 0 ? "odd" : "even")">
                     <td>
                         <input type="checkbox">
+                        <i class="fa fa-expand d-md-none d-table-cell cursor-pointer"></i>
                     </td>
-                    <td data-for="sku">
+                    <td data-for="sku" class="d-none d-md-table-cell">
                         @Html.DisplayFor(modelItem => item.SKU)
                     </td>
                     <td data-for="title">
@@ -82,7 +88,7 @@
                     <td data-for="price">
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    <td data-for="buildVolume">
+                    <td data-for="buildVolume" class="d-none d-md-table-cell">
                         @Html.DisplayFor(modelItem => item.BuildVolume)
                     </td>
                     <td data-for="printerImage">
