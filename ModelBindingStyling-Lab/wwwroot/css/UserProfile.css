@@ -2,6 +2,11 @@
     background: #c8c8d2;
     /*background: blue;*/
 }
+
+
+
+
+
 #account-sidebar {
     position: sticky;
     display: inline-flex;
@@ -10,12 +15,11 @@
     background: #490057;
     max-width: 200px;
     width: 100%;
-/*    display: flex;*/
-/*    justify-content: center;*/
-    align-items:center;
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    align-items: center;
     flex-direction: column;
     height: 100vh;
-
 }
 
 #logo {
@@ -69,10 +73,12 @@ margin: 50px 0 88px 0;
     left: 83px;
     border: 1px solid black;
 }
+
+
+
 #user-info {
-    position: absolute;
-    bottom: 36px;
-    left: 200px;
+    margin-left: 200px;
+
 }
 
 #user-profile-image img {

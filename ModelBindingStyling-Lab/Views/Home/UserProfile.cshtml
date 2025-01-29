@@ -20,22 +20,43 @@
         </div>
         <nav>
             <div>
-                <a href="#"><i>icon</i> Home</a>
-                <a href="#"><i>icon</i> Profile</a>
-                <a href="#"><i>icon</i> Messages</a>
-                <a href="#"><i>icon</i> Purchases</a>
-                <a href="#"><i>icon</i> Returns</a>
-                <a href="#"><i>icon</i> Gallery</a>
-                <a href="#"><i>icon</i> Analytics</a>
-                <a href="#"><i>icon</i> Settings</a>
+                <style>
+                    #account-sidebar i {
+                        margin-right: 10px;
+                    }
+
+                    #account-sidebar a {
+                        text-decoration: none;
+                    }
+                </style>
+                <a href="#"><i class="fa fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-user"></i>Profile</a>
+                <a href="#"><i class="fa fa-message"></i>Messages</a>
+                <a href="#"><i class="fa fa-money-bill"></i>Purchases</a>
+                <a href="#"><i class="fa-solid fa-person-walking-arrow-loop-left"></i>Returns</a>
+                <a href="#"><i class="fa fa-image"></i>Gallery</a>
+                <a href="#"><i class="fa fa-chart-simple"></i>Analytics</a>
+                <a href="#"><i class="fa fa-cog"></i>Settings</a>
             </div>
             @* Home, profile, messages, purchases, returns, Gallery, Analytics, Settings *@
         </nav>
     </div>
 
     <main class="d-flex flex-column w-100">
+        <style>
+
+            #top-bar input {
+                padding: 5px;
+                margin-right: 10px;
+            }
+            #top-bar #profile-logo{
+                /* A fix for the image was getting cut off (was 40px)*/
+                height: 37px;
+            }
+
+        </style>
         <div id="top-bar" class="d-flex justify-content-between ui-background ui-margin ui-br">
-            <input type="text" class="w-100" id="search" placeholder="Search">
+            <input type="text" class="w-100" id="search" placeholder="Search" >
             <div id="profile-logo" class="circle-frame">
                 <img src="https://placehold.co/400x400" alt="User Profile Image">
             </div>
@@ -51,12 +72,13 @@
                 <div id="user-profile-image" class="circle-frame">
                     <img src="https://placehold.co/400x400" alt="User Profile Image">
                 </div>
+              
+            </div>
+            <header class="d-flex justify-content-between w-100 flex-wrap">
                 <div id="user-info" class="">
                     <div id="username"> @Model.FullName</div>
                     <div id="user-title">[User title]</div>
                 </div>
-            </div>
-            <header>
                 <div id="header-actions-bar" class="d-flex justify-content-end mr-ui ">
 
                     <div id="profile-actions">
@@ -70,59 +92,66 @@
             </header>
         </div>
 
+        <style>
+            /* This style is placed here to override _rebooot.scss with out use of !important */
+            #main-content fieldset {
+                all: revert;
+                border-bottom: none;
+                border-left: none;
+                border-right: none;
+                width: 100%;
+            }
+
+            #main-content legend {
+                all: revert;
+                font-weight: bold;
+            }
+        </style>
 
         <div id="main-content" class="d-flex w-100">
-            <div id="about" class="d-flex flex-column align-items-center w-25 ui-background ui-margin ui-br" style="margin-right: 0;">
-                <header>About Section</header>
+            <div id="about" class="d-flex flex-column align-items-center w-auto ui-background ui-margin ui-br" style="margin-right: 0;">
+                <header>
+                    <h4>About Section</h4>
+                </header>
 
 
-                <dl class="row">
-                    <dt class="col-sm-3">
-                        @Html.DisplayNameFor(model => model.UserProfileId)
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Model.UserProfileId
-                    </dd>
-                    <dt class="col-sm-3">
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Model.FullName
-                    </dd>
-                    <dt class="col-sm-3">
-                        @Html.DisplayNameFor(model => model.Email)
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Model.Email
-                    </dd>
-                    <dt class="col-sm-3">
-                        @Html.DisplayNameFor(model => model.PhoneNumber)
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Model.PhoneNumber
-                    </dd>
-                    <dt class="col-sm-3">
-                        @Html.DisplayNameFor(model => model.ImageUrl)
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Model.ImageUrl
-                    </dd>
-                    <dt class="col-sm-3">
-                        @Html.DisplayNameFor(model => model.GitHubUrl)
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Model.GitHubUrl
-                    </dd>
-                    <dt>Skilled Languages</dt>
-                    <dd>
-                        <ul>
-                            @foreach (string languageSkill in Model.SkilledLanguages)
-                            {
-                                <li>@languageSkill</li>
-                            }
-                        </ul>
-                    </dd>
-                </dl>l
+                <fieldset>
+                    <legend> @Html.DisplayNameFor(model => model.UserProfileId)</legend>
+                    @Model.UserProfileId
+                </fieldset>
+                <fieldset>
+                    <legend>@Html.DisplayNameFor(model => model.FullName)</legend>
+                    @Model.FullName
+                </fieldset>
+
+                <fieldset>
+                    <legend>  @Html.DisplayNameFor(model => model.Email)</legend>
+                    @Model.Email
+                </fieldset>
+                <fieldset>
+                    <legend> @Html.DisplayNameFor(model => model.PhoneNumber)</legend>
+                    @Model.PhoneNumber
+                </fieldset>
+                <fieldset>
+                    <legend> @Html.DisplayNameFor(model => model.ImageUrl)</legend>
+                    @Model.ImageUrl
+                </fieldset>
+                <fieldset>
+                    <legend> @Html.DisplayNameFor(model => model.GitHubUrl)</legend>
+                    @Model.GitHubUrl
+                </fieldset>
+
+                <fieldset>
+                    <legend>Skilled Languages</legend>
+                    <ul>
+                        @foreach (string languageSkill in Model.SkilledLanguages)
+                        {
+                            <li>@languageSkill</li>
+                        }
+                    </ul>
+                </fieldset>
+
+
             </div>
             <div id="feed-container" class="flex-grow-1 d-flex flex-column align-items-center ui-background ui-margin ui-br">
                 <div id="feed-header">
