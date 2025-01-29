@@ -4,11 +4,39 @@
     ViewData["Title"] = "Printer List";
 }
 
-<h1>Printer List</h1>
+@section Styles {
+    <link rel="stylesheet" href="~/css/PrinterList.css" />
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function submitForm() {
+            $.ajax({
+                url: '@Url.Action("PrinterList", "Home")',
+                type: 'GET',
+                data: $('#filterForm').serialize(),
+                success: function (result) {
+                    $('#printerList').html($(result).find('#printerList').html());
+                }
+            });
+        }
+    </script>
+
+    <script src="~/js/PrinterList.js"></script>
+}
+
+
+<div class="bg-info">
+
+<h1 class="container">Printer List</h1>
+</div>
+
+
 
 @* data-for attribute added to link header and data elements *@
 
-<form id="filterForm" method="get" asp-action="PrinterList">
+<form id="filterForm" method="get" asp-action="PrinterList" class="container">
     <table class="table responsive">
         <thead>
             <tr>
@@ -36,9 +64,12 @@
             </tr>
         </thead>
         <tbody id="printerList">
-            @foreach (var item in Model.Printers)
+
+            @for (int i = 0; i < Model.Printers.Count(); i++)
             {
-                <tr>
+                ThreeDPrinters item = Model.Printers.ElementAt(i);
+
+                <tr class="@(i % 2 == 0 ? "odd" : "even")">
                     <td>
                         <input type="checkbox">
                     </td>
@@ -58,7 +89,7 @@
                         <img class="image" src="@item.PrinterImage" alt="printer image">
                     </td>
                 </tr>
-                /* 
+                /*
                 This is a child table that appears on mobile screens as a dropdown under each row
                 */
                 <tr class="child-table">
@@ -74,18 +105,3 @@
     </table>
 </form>
 
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        function submitForm() {
-            $.ajax({
-                url: '@Url.Action("PrinterList", "Home")',
-                type: 'GET',
-                data: $('#filterForm').serialize(),
-                success: function (result) {
-                    $('#printerList').html($(result).find('#printerList').html());
-                }
-            });
-        }
-    </script>
-}

@@ -13,5 +13,7 @@ namespace ModelBindingStyling_Lab.Models
 
         [Display(Name ="Print Image")]
         public string PrinterImage { get; set; }
+
+       
     }
 }
