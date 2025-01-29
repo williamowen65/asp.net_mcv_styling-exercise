@@ -105,7 +105,7 @@ margin: 50px 0 88px 0;
 
 }
 
-nav a {
+nav:not([aria-label="breadcrumb"]) a {
     display: block;
     margin-bottom: 20px;
 }

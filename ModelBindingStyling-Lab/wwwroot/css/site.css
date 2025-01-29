@@ -26,5 +26,11 @@ tr.child-table {
    border-style: hidden;
 }
 
+.disabled-link {
+    pointer-events: none;
+    color: gray;
+    text-decoration: none !important;
+}
+
 
 
