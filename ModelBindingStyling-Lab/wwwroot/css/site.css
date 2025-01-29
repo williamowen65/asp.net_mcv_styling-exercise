@@ -22,9 +22,6 @@ input {
     min-width: 50px;
 }
 
-tr.child-table {
-   border-style: hidden;
-}
 
 .disabled-link {
     pointer-events: none;

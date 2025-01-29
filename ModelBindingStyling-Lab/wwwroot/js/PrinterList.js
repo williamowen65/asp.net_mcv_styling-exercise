@@ -9,4 +9,18 @@
     document.querySelector('#printer-list-breadcrumb').classList.add('active', 'disabled-link')
 
 
+    // Set listener for child-table-toggle
+    Array.from(document.querySelectorAll('.child-table-toggle'))
+        .forEach(el => {
+
+            el.addEventListener('click', toggleChildTable)
+        })
+
 })
+
+
+function toggleChildTable(e) {
+    // find parent row
+    const parentRow = e.target.closest('tr').nextElementSibling
+    parentRow.classList.toggle('d-none')
+}

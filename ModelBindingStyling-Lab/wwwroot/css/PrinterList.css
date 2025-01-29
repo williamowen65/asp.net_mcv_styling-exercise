@@ -9,3 +9,12 @@ tbody tr.even {
 tbody tr.odd {
     background-color: #ffffff; /* White background for odd rows */
 }
+
+.child-table {
+
+/*    border: 1px solid black !important;*/
+
+    
+   
+
+}

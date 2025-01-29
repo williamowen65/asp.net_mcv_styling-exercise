@@ -44,7 +44,8 @@
     <table class="table responsive">
         <thead>
             <tr>
-                <th></th>
+                <th id="child-table-toggle-header-cell" class="d-md-none d-table-cell"></th>
+                <th id="checkbox-header-cell"></th>
                 <th data-for="sku" class="d-none d-md-table-cell">
                     <div>@Html.DisplayNameFor(model => model.Filter.SKU)</div>
                     <input class="form-control" type="text" name="SKU" value="@Model.Filter.SKU" oninput="submitForm()">
@@ -68,16 +69,18 @@
             </tr>
         </thead>
         <tbody id="printerList">
-         
+
 
             @for (int i = 0; i < Model.Printers.Count(); i++)
             {
                 ThreeDPrinters item = Model.Printers.ElementAt(i);
 
                 <tr class="@(i % 2 == 0 ? "odd" : "even")">
+                    <td class="d-md-none d-table-cell">
+                        <i class="fa fa-expand d-md-none d-table-cell cursor-pointer child-table-toggle"></i>
+                    </td>
                     <td>
                         <input type="checkbox">
-                        <i class="fa fa-expand d-md-none d-table-cell cursor-pointer"></i>
                     </td>
                     <td data-for="sku" class="d-none d-md-table-cell">
                         @Html.DisplayFor(modelItem => item.SKU)
@@ -98,11 +101,31 @@
                 /*
                 This is a child table that appears on mobile screens as a dropdown under each row
                 */
-                <tr class="child-table">
-                    <td colspan="6">
-                        <table>
-                            <thead></thead>
-                            <tbody></tbody>
+                <tr class="child-table d-none @(i % 2 == 0 ? "odd" : "even")">
+                    <td></td>
+                    <td></td>
+                    <td colspan="3">
+                        <table class="w-100">
+                            <thead>
+                                <tr>
+                                    <th data-for="sku" class="d-md-none d-table-cell">
+                                        <div>@Html.DisplayNameFor(model => model.Filter.SKU)</div>
+                                    </th>
+                                    <th data-for="buildVolume" class="d-md-none d-table-cell">
+                                        <div>@Html.DisplayNameFor(model => model.Filter.BuildVolume)</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-for="sku" class="d-md-none d-table-cell">
+                                        @Html.DisplayFor(modelItem => item.SKU)
+                                    </td>
+                                    <td data-for="buildVolume" class="d-md-none d-table-cell">
+                                        @Html.DisplayFor(modelItem => item.BuildVolume)
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </td>
                 </tr>
