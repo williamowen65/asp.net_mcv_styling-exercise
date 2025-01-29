@@ -9,7 +9,7 @@ I used the Breadcrumb Bootstrap component in the header, Bootstrap buttons, and 
 I worked on building out a user profile page to be similar to social media platforms. The account-nav on the left is "sticky" and follows the users scroll position. But this element is hidden on small screens. The about section becomes a modal (Not yet implemented).
 
 <img src="./example-images/user-profile-lg.png"  />
-<img src="./example-images/user-profile-sm.png"  />
+<img src="./example-images/user-profile-sm.png"  style="width:700px"/>
 
 ## Printer List
 
@@ -18,4 +18,4 @@ The printer list tables, I tried to implement features of a js library called Da
 So this was an attempt to implement search boxes by column, and also implement child tables for mobile screens. It was exciting to do this, but I'd probably stick with DataTables for another project. 
 
 <img src="./example-images/printer-lg.png" />
-<img src="./example-images/printer-sm.png" />
+<img src="./example-images/printer-sm.png"   style="width:700px" />
