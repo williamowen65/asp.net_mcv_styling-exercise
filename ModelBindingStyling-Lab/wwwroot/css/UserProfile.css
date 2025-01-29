@@ -9,7 +9,7 @@
 
 #account-sidebar {
     position: sticky;
-    display: inline-flex;
+/*    display: inline-flex; This gets set inline with bootstrap for media query */
     left: 0;
     top: 0;
     background: #490057;

@@ -10,7 +10,7 @@
 
 
 <div id="page" class="d-flex">
-    <div id="account-sidebar">
+    <div id="account-sidebar" class="d-none d-md-inline-flex">
         <div id="logo" class="d-flex">
             <div class="img-container circle-frame">
 
@@ -49,14 +49,15 @@
                 padding: 5px;
                 margin-right: 10px;
             }
-            #top-bar #profile-logo{
+
+            #top-bar #profile-logo {
                 /* A fix for the image was getting cut off (was 40px)*/
                 height: 37px;
             }
 
         </style>
         <div id="top-bar" class="d-flex justify-content-between ui-background ui-margin ui-br">
-            <input type="text" class="w-100" id="search" placeholder="Search" >
+            <input type="text" class="w-100" id="search" placeholder="Search">
             <div id="profile-logo" class="circle-frame">
                 <img src="https://placehold.co/400x400" alt="User Profile Image">
             </div>
@@ -72,19 +73,20 @@
                 <div id="user-profile-image" class="circle-frame">
                     <img src="https://placehold.co/400x400" alt="User Profile Image">
                 </div>
-              
+
             </div>
             <header class="d-flex justify-content-between w-100 flex-wrap">
+                <button class="d-block d-md-none position-absolute" style="bottom: 37px">About</button>
                 <div id="user-info" class="">
                     <div id="username"> @Model.FullName</div>
                     <div id="user-title">[User title]</div>
                 </div>
-                <div id="header-actions-bar" class="d-flex justify-content-end mr-ui ">
-
+                <div id="header-actions-bar" class="d-flex justify-content-end mr-ui flex-grow-1">
+                    
                     <div id="profile-actions">
-                        <button>comments</button>
-                        <button>Follow</button>
-                        <button>Schedule a meeting</button>
+                        <button class="btn btn-secondary"><i class="fa  fa-message"></i></button>
+                        <button class="btn btn-primary">Follow</button>
+                        <button class="btn btn-secondary">Schedule a meeting</button>
 
                     </div>
                 </div>
@@ -108,8 +110,8 @@
             }
         </style>
 
-        <div id="main-content" class="d-flex w-100">
-            <div id="about" class="d-flex flex-column align-items-center w-auto ui-background ui-margin ui-br" style="margin-right: 0;">
+        <div id="main-content" class="d-flex w-100 ">
+            <div id="about" class="d-none d-md-flex flex-column align-items-center w-auto ui-background ui-margin ui-br" style="margin-right: 0;">
                 <header>
                     <h4>About Section</h4>
                 </header>
@@ -155,14 +157,15 @@
             </div>
             <div id="feed-container" class="flex-grow-1 d-flex flex-column align-items-center ui-background ui-margin ui-br">
                 <div id="feed-header">
-                    <button>Followers</button>
-                    <button>Following</button>
-                    <button>Posts</button>
+                    <button class="btn btn-secondary">Followers</button>
+                    <button class="btn btn-secondary">Following</button>
+                    <button class="btn btn-secondary">Posts</button>
                 </div>
                 <div id="feed">
                     Feed item
                 </div>
             </div>
+
             <div id="profile-sidebar" class="d-flex flex-column align-items-center w-25 mr-ui x">
                 <div id="you-might-know" class="sidebar-section ui-background w-100 ui-margin mb-0 ui-br">
                     <header>You might know</header>
